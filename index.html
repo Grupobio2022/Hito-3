@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="#social">Consideraciones de diseño</a></li>
                         <li class="nav-item"><a class="nav-link" href="#eco">Diseño e implementación de las subfunciones</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Experiencias críticas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Codigos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Referencias</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,36 +84,34 @@
             </div>
     
     
-                <!-- About-->
+                <!-- eco-->
         <section class="page-section" id="eco">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="section-heading text-uppercase">Planteamiento del problema</h2>
-                    </br>
-                </div>
-                 <h4>A. Entendiendo el problema</h4>
-                 <p class="mb-5">Con la información recopilada, podemos evidenciar que la enfermedad de parkinson afecta la calidad vida de las personas y afecta a millones de personas en el mundo. En equipo identificamos los principales problemas en nuestro cuadro del “Planteamiento del problema” teniendo en cuenta nuestra formación como Ingenieros Biomédicos.</p>
+                 <h4><u>B. Diseño e implementación de las subfunciones</u></h4>
+             <p class="mb-5">Tomando en cuenta las subfunciones del sistema y los componentes escogidos para el prototipo, se diseñó el circuito en un software. En el cual se muestran las conexiones eléctricas entre los opamps, las resistencias y el sensor; así como los puntos de referencia (GND) y fuentes de alimentación (VCC) para el sensor myo ware y el arduino nano, en este caso, provenientes de la batería de 9V. Una vez alimentado el circuito se realiza la medición de electromiografía, en donde la señal muscular será captada por medio de los electrodos del sensor myoware (submódulo de monitoreo), la cual podrá ser adquirida gracias al arduino nano. Los datos recibidos son enviados al software gracias al submódulo de transmisión por vía bluetooth. La señal previamente captada será amplificada gracias a los opamps para finalmente ser procesados y visualizados en una interfaz. </p>
                  <img class="img-fluid d-block mx-auto" src="assets/img/about/tab6.png" alt="..." />
-            <p class="mb-5">El problema que nos enfocaremos en solucionar es “La falta de monitoreo de pacientes de parkinson que presentan temblores y empiezan un tratamiento farmacológico”. Para poder tener un mejor enfoque en el problema que queremos solucionar utilizamos la herramienta de las preguntas 5WH.</p>
+            <p class="mb-5">Seguidamente, se realizó la implementación y conexión del hardware siguiendo el modelo del circuito diseñado previamente. En la imagen se visualiza el protoboard donde se integró las conexiones del sistema para verificar su correcto funcionamiento. En ella se muestran los cables, las resistencias, los opamps y el sensor conectados en el mismo protoboard; así como la conexión directa entre el arduino nano y el bluetooth HC-05. No obstante, solo para el caso de prueba, la batería de 9V no se visualiza ya que fue reemplazada por la alimentación desde una laptop.</p>
                  <img class="img-fluid d-block mx-auto" src="assets/img/about/tab7.png" alt="..." />
-            <p class="mb-5">Teniendo un mejor conocimiento del enfoque de nuestro problema realizamos entrevistas con el fin de entender el punto de vista que se tiene de la enfermedad. La primera de las entrevistas fue dirigida a un médico especialista en neurología y la segunda dirigida a un paciente con la enfermedad de Parkinson.</p>
+            <p class="mb-5">Ya teniendo el hardware implementado, se realizaron los códigos respectivos para la lectura de datos y posterior visualización en el software. Una vez obtenida la señal, se diseñó un código en el programa de Arduino para verificar si la señal recibida va acorde a lo esperado; es decir, obtener la visualización de las frecuencias a través del tiempo; así como una respectiva variación cuando se ejecute algún movimiento de la parte corporal donde se hayan colocado los electrodos, esto representado mediante la variación de picos y amplitudes en la ventana del software.</p>
                 <img class="img-fluid d-block mx-auto" src="assets/img/about/tab8.png" alt="..." />
-                <img class="img-fluid d-block mx-auto" src="assets/img/about/tab9.png" alt="..." />
-            <p class="mb-5">Visto el problema desde estos puntos se realizó por último el “Mapa de interesados” para identificar quienes tienen una influencia directa o indirecta en nuestro proyecto para poder realizarlo de forma eficaz.</p>
-                <img class="img-fluid d-block mx-auto" src="assets/img/about/tab10.png" alt="..." />                       
+            <p class="mb-5">Como la lectura de la señal está en un formato de imagen, para obtener valores cuantitativos de estas señales, se diseñó un código en Python para la obtención en datos numéricos de las frecuencias captadas. Para ello, se utilizó la librería “time” para obtener un registro de las frecuencias en determinados intervalos de tiempo como 5s, 10s, 15, y 20s. Los datos recopilados fueron previamente decodificados para recopilar solo cifras numéricas y luego ser almacenados en un archivo CSV.</p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/about/tab10.png" alt="..." />  
+            <p class="mb-5">Para visualizar mejor los datos cuantitativos, se usó la Transformada de Wavelet, ya que es un modelo matemático que brinda mejores detalles y más información sobre los valores de la señal captada. Si bien la más conocida y bastante eficiente para realizar transformaciones matemáticas es la Transformada de Fourier, existen también algunas limitaciones como la imposibilidad de determinar cuándo ocurre un determinado suceso o cuándo está presente una determinada frecuencia. Estos inconvenientes son solucionados por Wavelet, ya que el análisis se basa en descomponer la señal de frecuencias en intervalos de tiempo [37, 38, 39]. Un hecho que justamente es necesario para el estudio que se desea realizar, pues se busca conocer cada cuánto tiempo el paciente con parkinson presenta recaídas y el número de ocurrencias de la misma. De este modo, para este paso, se utilizó el software Matlab, ya que este programa cuenta con una herramienta denominada Wavelet Toolbox, en donde se puede ejecutar esta transformada y obtener gráficos que clarifican el análisis. Es así que para el código realizado en Matlab, se consideró hacer un espectrograma donde se pueda visualizar las variaciones e intensidad de frecuencia mediante niveles de colores a través del tiempo. Este espectrograma será guardado como imagen para ser enviado a la interfaz.</p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/about/tab10.png" alt="..." />  
+            <p class="mb-5">Asimismo, se diseñó una interfaz interactiva para que el doctor pueda visualizar los resultados de la medición de señales del paciente. Esta GUI (Interfaz gráfica de usuario) fue diseñada en Python usando la herramienta Tkinter. El diseño consta de una ventana principal con 2 opciones a realizar, una denominada “CREAR CUENTA”  que dirigirá a una nueva ventana para permitir el registro del usuario con la creación de un código de usuario, contraseña y correo electrónico, como se suele utilizar; para añadir interactividad, se adiciona mensajes de texto cuando se desee realizar una determinada acción. La otra opción estará disponible siempre en cuando el usuario ya tenga una cuenta creada, por lo que, por medio del botón “LOGIN” podrá acceder a la base de datos de sus pacientes. Esta última opción abrirá una nueva ventana en donde se contará con 2 espacios. La primera, ubicada en la parte superior, donde se podrá leer y mostrar la imagen obtenida con el Matlab. Y la segunda, la sección en blanco inferior, donde se mostrará un resumen con datos cuantitativos de la señal, como el intervalo de tiempo que duró una recaída, cada qué tiempo se presentaron estos síntomas, etc. Esto por medio de los 3 botones: Cargar datos para mostrar el resumen en texto, Importar datos para almacenar en el disco y Reiniciar para actualizar la ventana.</p>
+                <img class="img-fluid d-block mx-auto" src="assets/img/about/tab10.png" alt="..." />  
+            <p class="mb-5">Una vez verificado que el circuito funciona correctamente y los datos se adquieren, transmiten y procesan de manera eficiente, se procedió a hacer un comprimido del sistema en una placa de circuito impreso (PCB por sus siglas en inglés), en donde se colocó de la mejor manera cada uno de los componentes usados, conectando los cables mediante borneras. Obteniendo así unas dimensiones de 100 mm  x 60 mm y 4mm de espesor.</p>
                 
-            <h4>B. Definiendo el problema</h4>
-            <p class="mb-5">Después de definido el problema pasamos a observar y entender mejor al usuario objetivo, por lo cual decidimos usar la herramienta de Design Thinking llamada “mapa de empatía”. De este modo podemos entender de mejor manera al usuario, llegando a identificar sus necesidades y preferencias.</p>
-            <img class="img-fluid d-block mx-auto" src="assets/img/about/tab11.png" alt="..." /> 
-            <p class="mb-5">Se utilizó de igual manera la herramienta “perfil del usuario” para tener una imágen mejor formada del usuario regular de nuestra propuesta de solución.</p>
-            <img class="img-fluid d-block mx-auto" src="assets/img/about/tab12.png" alt="..." /> 
+           </div>
             
-            <h4>C. Observando el problema</h4>
-            <p class="mb-5">Luego de haber entendido la problemática y acercarnos más a las necesidades y preferencias de nuestro usuario objetivo podemos definir de manera más objetiva el problema. Luego de discutirlo en grupo, se llegó a la siguiente conclusión respecto a la meta del diseño:</p>
-            <img class="img-fluid d-block mx-auto" src="assets/img/about/tab13.png" alt="..." /> 
-            <p class="mb-5">Por último, se procedió a definir junto con el equipo los parámetros y límites que guiarán esta propuesta de diseño. Para ello se utilizó la herramienta “Define success”</p>
-            <img class="img-fluid d-block mx-auto" src="assets/img/about/tab14.png" alt="..." /> 
-            
+             <!-- About-->
+        <section class="page-section" id="About">
+            <div class="container">
+                <h4><u>C. Experimentos enfocados de las funciones y/o experiencias críticas</u></h4>
+                <p class="mb-5">La tabla nos muestra lo que le gusta, le gustaría, las preguntas y las ideas del usuario, el cual utilizó el prototipo elaborado hasta el momento. Esta es una herramienta de retroalimentación para las mejoras y cambios del prototipo.</p>
+                 <img class="img-fluid d-block mx-auto" src="assets/img/about/tab6.png" alt="..." />
+                     
+           </div>
             
         <!-- Clients-->
         <div class="py-5">
