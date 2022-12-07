@@ -51,10 +51,8 @@
             <div class="container">
                 <div class="text-center">
                     <h2 class="section-heading text-uppercase">Implementación</h2>
-                </div>
                     <h4><u>A. Consideraciones de diseño</u></h4>
                 <p class="mb-5">Prototipamos la propuesta de solución usando las herramientas de fabricación digital y plataformas de prototipado de hardware y software.</p>
-                     </div>
                  <h4>I. Definiciones de entradas y salidas</h4>
                 <p class="mb-5">Para nuestra solución ganadora identificamos las siguientes entradas:</p>
             <ul><p class="mb-5">
@@ -71,19 +69,19 @@
                 <img class="img-fluid d-block mx-auto" src="assets/img/about/tab4.png" alt="..." />
             
                 <h4>III. Matriz morfológica de las subfunción</h4>
-                <p class="mb-5">A partir de la definición de subfunciones, realizamos una matriz morfológica para escoger la opción más adecuada respecto a los materiales que se utilizarán en la realización del prototipo.</p>
-                <p class="mb-5">A continuación se indica los modelos y ventajas de los componentes escogidos:</p>
-                <p class="mb-5">- Señales electromiográficas: Señal biomédica que mide las corrientes eléctricas en los músculos durante su contracción.</p>
-                <p class="mb-5">Y para nuestras salidas se identificaron:</p>
-                <p class="mb-5">- Registro de señales electromiográficas.</p>
-                <p class="mb-5">- Gráfico de señales electromiográficas.</p>
-                <p class="mb-5">- Información del paciente: Recolección de los nombres, datos y diagnósticos previos del paciente.</p>
-                <p class="mb-5">- Señales electromiográficas: Señal biomédica que mide las corrientes eléctricas en los músculos durante su contracción.</p>
-                <p class="mb-5">Y para nuestras salidas se identificaron:</p>
-                <p class="mb-5">- Registro de señales electromiográficas.</p>
-                <p class="mb-5">- Gráfico de señales electromiográficas.</p>
-                
-            
+                <p class="mb-5">A partir de la definición de subfunciones, realizamos una matriz morfológica para escoger la opción más adecuada respecto a los materiales que se utilizarán en la realización del prototipo. A continuación se indica los modelos y ventajas de los componentes escogidos:</p>
+                <ul><p class="mb-5">
+                <li>Monitoreo (EMG myoware): Solo necesita 1 fuente de voltaje de 5V, sin necesidad de voltajes negativos. Los electrodos se conectan directamente a la placa, reduciendo así el tamaño y cableado necesario [34].</li>
+                <li>Alimentación (Batería 9V): Pila eléctrica de corriente directa. Con la cual conseguiremos los voltios necesarios para el circuito.</li>
+                <li>Adquisición (Arduino Nano): Permite un fácil diseño de circuitos. Una ventaja frente a otras es el tamaño y utiliza un microcontrolador ATmega328P [35].</li>
+                <li>Transmisión (Bluetooth HC-05): Permite transmitir y recibir datos por vía inalámbrica. Como ya se mencionó, su ventaja respecto a otras es que trabaja como maestro y esclavo [36]. </li>
+                <li>Filtrado y amplificación: Circuito que consta de 2 opamps para obtener una señal amplificada del sensor.</li>
+                <li>Procesamiento (MATLAB): Sistema de cómputo numérico que permitió implementar y probar algoritmos fácilmente. </li>
+                <li>Visualización: Gráfica en Matlab, la cual nos muestra la frecuencia a través del tiempo, ideal para la observación del doctor. </li>
+            </ul></p>
+        
+             </div>  
+            </div>
                 <!-- About-->
         <section class="page-section" id="eco">
             <div class="container">
